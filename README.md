@@ -1,6 +1,8 @@
-# vpn-docker
+# thedava/vpn-docker
 
-A WireGuard based VPN server
+A WireGuard based VPN server that runs in a docker container.
+
+This is just a utility project with some basic configurations for the easy use of [linuxserver/docker-wireguard](https://github.com/linuxserver/docker-wireguard).
 
 
 ## Initial setup
