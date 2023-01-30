@@ -1,6 +1,6 @@
 setup:
-        cp -n .env.example .env || true
-        docker-compose up -d
+	cp -n .env.example .env || true
+	docker-compose up -d
 
 
 dump-tunnels:
