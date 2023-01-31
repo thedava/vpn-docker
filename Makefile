@@ -1,6 +1,8 @@
+DC = docker-compose
+
 setup:
 	cp -n .env.example .env || true
-	docker-compose up -d
+	$(DC) up -d
 
 
 dump-tunnels:
@@ -9,10 +11,17 @@ dump-tunnels:
 	@find ./tunnels -type d -name "peer_*" -print0 | xargs -0 -I {} -n1 zip -r -j {}.zip {}
 	@find ./tunnels -type d -name "peer_*"  -print0 | xargs -0 rm -rf
 
+logs:
+	$(DC) logs --tail=1000 wireguard
+
 
 update-peers:
 	cp -n .env.example .env || true
-	docker-compose up -d --force-recreate
-	@sleep 2
-	docker-compose logs --tail=1000 wireguard
-	$(MAKE) dump-tunnels
+	$(DC) up -d --force-recreate
+	@sleep 4
+	$(MAKE) logs dump-tunnels
+
+
+upgrade:
+	docker pull lscr.io/linuxserver/wireguard:latest
+	$(DC) up -d

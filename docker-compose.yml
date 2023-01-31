@@ -11,10 +11,11 @@ services:
             - PGID=1000
             - TZ=$TZ
             - SERVERURL=$SERVER
-            - SERVERPORT=51820
-            - INTERNAL_SUBNET=172.25.0.0
-            - ALLOWEDIPS=172.25.0.0/12
+            - SERVERPORT=$PORT
+            - INTERNAL_SUBNET=$SUBNET
+            - ALLOWEDIPS=$IPS
             - PEERS=$PEERS
+            - LOG_CONFS=false
         volumes:
             - ./config:/config
             - ./modules:/lib/modules

@@ -5,9 +5,18 @@ A WireGuard based VPN server that runs in a docker container.
 This is just a utility project with some basic configurations for the easy use of [linuxserver/docker-wireguard](https://github.com/linuxserver/docker-wireguard).
 
 
+## Requirements
+
+* docker-compose
+* docker
+* make
+* zip
+
+
 ## Initial setup
 
 Copy the .env.example file as .env file and adjust to your needs:
+* TZ contains the timezone (e.g. "Europe/Berlin")
 * SERVER contains the address to the server (either domain or IP)
 * PEERS contains a comma separated list of peer configuration names (e.g. "admin,user1,user2")
 
