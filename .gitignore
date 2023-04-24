@@ -3,5 +3,7 @@
 /tunnels/
 
 .env
+.env.*
 
+!.env.example
 !.gitkeep
